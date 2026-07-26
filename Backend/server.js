@@ -235,10 +235,10 @@ app.use((err, req, res, next) => {
 });
 
 // ── 5. SERVE FRONTEND ──────────────────────────
-app.use(express.static(path.join(__dirname, "../Front-end/dist")));
+app.use(express.static(path.join(__dirname, "../Front-end/build")));
 
 app.use((req, res) => {
-  res.sendFile(path.join(__dirname, "../Front-end/dist/index.html"));
+  res.sendFile(path.join(__dirname, "../Front-end/build/index.html"));
 });
 
 // ── START SERVER ───────────────────────────────
