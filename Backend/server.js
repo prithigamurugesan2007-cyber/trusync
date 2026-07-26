@@ -235,11 +235,6 @@ app.use((err, req, res, next) => {
 });
 
 // ── 5. SERVE FRONTEND ──────────────────────────
-app.use(express.static(path.join(__dirname, "../Front-end/build")));
-
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, "../Front-end/build/index.html"));
-});
 
 // ── START SERVER ───────────────────────────────
 if (process.env.NODE_ENV !== "production") {
