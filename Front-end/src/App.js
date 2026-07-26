@@ -48,12 +48,15 @@ function App() {
     setSourcesLoading(true);
     setSources(null);
 
-    try {
-      const res = await fetch(`/sources?q=${encodeURIComponent(query)}`, {
-        headers: {
-          'X-App-Origin': FRONTEND_ORIGIN,
-        },
-      });
+   try {
+  const res = await fetch(
+    `https://trusync-nh1e.vercel.app/sources?q=${encodeURIComponent(query)}`,
+    {
+      headers: {
+        'X-App-Origin': FRONTEND_ORIGIN,
+      },
+    }
+  );
       const data = await res.json();
       setSources(data);
     } catch (err) {
@@ -70,7 +73,7 @@ function App() {
     setResult(null);
 
     try {
-      const res = await fetch('https://trusync-nh1e.vercel.app', {
+      const res = await fetch('https://trusync-nh1e.vercel.app/analyze', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -119,7 +122,7 @@ function App() {
 
    
 
-      const res = await fetch('http://localhost:5000/analyze-image', {
+      const res = await fetch('https://trusync-nh1e.vercel.app/analyze-image', {
         method: 'POST',
         headers: {
           'X-App-Origin': FRONTEND_ORIGIN,
